@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <button @click="btn">点我切换</button>
+  <v-switch :case="name">
+    <template #foo> <div>foo</div> </template>
+    <template #bar> <div>bar</div> </template>
+    <template #bottom> <div>bottom</div> </template>
+  </v-switch>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import VSwitch from "../components/VSwitch.vue";
+import { ref } from "vue";
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+let name = ref("foo");
+const btn = () => {
+
+  name.value == "foo"
+    ? (name.value = "bar")
+    : name.value == "bar"
+      ? (name.value = "bottom")
+      : (name.value = "foo");
+
+};
+
+
 </script>

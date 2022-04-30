@@ -4,7 +4,16 @@
     <router-link to="/about">About</router-link>
   </div>
   <router-view/>
+  <Vnode />
 </template>
+
+<script setup>
+import Vnode from "../render-fn.js"
+
+
+
+</script>
+
 
 <style lang="scss">
 #app {
